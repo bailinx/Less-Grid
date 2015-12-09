@@ -1,0 +1,7 @@
+.generate-columns(@n, @t, @i: 1) when (@i <= @n){
+    .col-@{t}-@{i} {
+        // 百分比布局
+        width: (@i * 100% / @n);
+    }
+    .generate-columns(@n, @t, (@i + 1));
+}

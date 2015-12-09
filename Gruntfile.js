@@ -27,14 +27,11 @@ module.exports = function(grunt) {
                     livereload: '<%=connect.options.livereload%>'
                 },
                 files: [
-                    "less/*.less"
+                    "less/*.less",
+                    "dist/**/*.html"
                 ],
                 tasks: ['less:compile']
             }
-            /*scripts: {
-                files: "js/*.js",
-                tasks: ['uglify']
-            }*/
         },
         less: {
             compile: {
@@ -42,13 +39,20 @@ module.exports = function(grunt) {
                     strictMath: true,
                     sourceMap: true
                 },
+                src: ['less/x-grid.less'],
+                dest: 'dist/css/x-grid.css',
+            }
+            /*compile: {
+                options: {
+                    strictMath: true,
+                    sourceMap: true
+                },
                 expand: true, // 动态扩展
                 cwd: 'less/', // less源文件夹
-                // src: ['**/*.less','!import.less'],
                 src: ['*.less','!import.less'], // 不需要遍历子文件夹
                 dest: 'dist/css/',
                 ext: '.css'
-            }
+            }*/
         }
     });
 

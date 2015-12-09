@@ -1,0 +1,27 @@
+@base-url: "mixins";
+//@import "normalize.less";
+@import "@{base-url}/clearfix.less";
+@import "@{base-url}/grid.less";
+
+@gutter: 15px;
+@columns: 24;
+@screen-xs-min: 480px;
+@screen-sm-min: 768px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+
+.container {
+    float: left;
+    position: relative;
+    width: 100%;
+    left: 100%;
+    //.clearfix();
+    &:extend(.clearfix all);
+}
+
+/*make lg*/
+.generate-columns(5, lg);
+/*make xs*/
+@media (min-width: @screen-xs-min) {
+    .generate-columns(@columns, xs);
+}
