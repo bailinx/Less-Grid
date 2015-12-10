@@ -1,7 +1,7 @@
 {
   "name": "X-Grid",
   "version": "0.0.1",
-  "homepage": "https://github.com/radishj/m-zone",
+  "homepage": "https://github.com/radishj/X-Grid",
   "author": "radishj <423261989@qq.com>",
   "license": "MIT",
   "devDependencies": {
@@ -10,6 +10,9 @@
     "grunt-contrib-connect": "latest",
     "grunt-contrib-watch" : "latest",
     "grunt-contrib-less": "latest",
+    "grunt-contrib-csslint": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-css-combo": "latest",
     "load-grunt-tasks": "~0.3.0"
   }
 }

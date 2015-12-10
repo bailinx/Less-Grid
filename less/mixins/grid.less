@@ -62,9 +62,23 @@
 
 // 指定列漂移属性
 .generate-columns-float(@n, @t, @i: 1) when (@i <= @n){
-    .col-@{t}-@{i} {
-        // 百分比布局
-        float: left;
+    // .col-@{t}-@{i} {
+    //     // 百分比布局
+    //     float: left;
+    // }
+    // .generate-columns-float(@n, @t, (@i + 1));
+    .col(@idx) {
+        @item: ~".col-@{t}-@{idx}";
+        .col((@idx + 1), @item);
     }
-    .generate-columns-float(@n, @t, (@i + 1));
+    .col(@idx, @list) when (@idx <= @n) {
+        @item: ~".col-@{t}-@{idx}";
+        .col((@idx + 1), ~"@{list}, @{item}");
+    }
+    .col(@idx, @list) when (@idx > @n) {
+        @{list} {
+            float: left;
+        }
+    }
+    .col(1);
 }

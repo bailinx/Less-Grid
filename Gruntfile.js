@@ -53,6 +53,26 @@ module.exports = function(grunt) {
                 dest: 'dist/css/',
                 ext: '.css'
             }*/
+        },
+        csslint: {
+            options: {
+                csslintrc: '.csslintrc'
+            },
+            dist: [
+                'dist/css/x-grid.css'
+            ]
+        },
+        cssmin: {
+            options: {
+                report: 'gzip'
+            },
+            build: {
+                expand: true,
+                cwd: 'dist/',
+                src: ['css/*.css', '!*.min.css'],
+                dest: 'dist/',
+                ext: '.min.css'
+            }
         }
     });
 
@@ -60,6 +80,10 @@ module.exports = function(grunt) {
         'connect:server',
         'watch'
     ]);
-
+    grunt.registerTask('release', [
+        'less:compile',
+        'csslint:dist',
+        'cssmin'
+    ]);
     grunt.registerTask('lessc', ['less:compile']);
 };
