@@ -6,9 +6,65 @@
 <title>X-Grid</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
-<link href="" rel="stylesheet">
+<link href="css/x-grid.css" rel="stylesheet">
+<style type="text/css">
+    .box {
+        height: 4rem;
+        color: white;
+        padding: 10px;
+    }
+    .bg-success {
+        background-color: #5cb85c;
+    }
+    .bg-info {
+        background-color: #5bc0de;
+    }
+    .bg-warning {
+        background-color: #f0ad4e;
+    }
+    .bg-danger {
+        background-color: #d9534f;
+    }
+</style>
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 box bg-success">
+            123
+        </div>
+        <div class="col-md-8 box bg-info">
+            234
+        </div>
+        <div class="col-md-6 box bg-warning">
+            234
+        </div>
+        <div class="col-md-6 box bg-danger">
+            234
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4 box bg-danger">
+            col-md-offset-4 col-md-4
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-12 col-md-5 box bg-success">
+            col-md-offset-12 col-md-5
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-md-offset-17 col-md-7 box bg-info">
+            col-md-offset-17 col-md-7
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-24 box bg-warning">
+            col-md-24
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -1,7 +1,70 @@
+// fix container
+.container-fixed(@gutter: @grid-gutter-width) {
+    margin: 0 auto;
+    // 向下取整
+    padding-left: floor((@grid-gutter-width / 2));
+    // 向上取整
+    padding-right: ceil((@grid-gutter-width / 2));
+    // 清除浮动
+    &:extend(.clearfix all);
+}
+// make grid columns 精妙之处
+.make-grid-columns() {
+    // 初始化
+    .col(@idx) {
+        @item: ~".col-xs-@{idx}, .col-sm-@{idx}, .col-md-@{idx}, .col-lg-@{idx}";
+        .col((@idx + 1), @item);
+    }
+    // 当<=列数
+    .col(@idx, @list) when (@idx <= @columns) {
+        @item: ~".col-xs-@{idx}, .col-sm-@{idx}, .col-md-@{idx}, .col-lg-@{idx}";
+        .col((@idx + 1), ~"@{list}, @{item}");
+    }
+    // 当大于列数，结束循环
+    .col(@idx, @list) when (@idx > @columns) {
+        @{list} {
+            position: relative;
+            // float 不能放这
+            // float: left;
+            min-height: 1px;
+            padding-left: ceil((@grid-gutter-width / 2));
+            padding-right: floor((@grid-gutter-width / 2));
+        }
+    }
+    .col(1);
+}
+
+// row
+.make-row(@gutter: @grid-gutter-width) {
+    margin-left: ceil((@gutter / -2));
+    margin-right: floor((@gutter / -2));
+    &:extend(.clearfix all);
+}
+
+// 生成栅格列
 .generate-columns(@n, @t, @i: 1) when (@i <= @n){
     .col-@{t}-@{i} {
         // 百分比布局
         width: (@i * 100% / @n);
     }
     .generate-columns(@n, @t, (@i + 1));
+}
+
+// 生成偏移列
+.generate-offset-columns(@n, @t, @i: 1) when (@i <= @n){
+    // @offsetIdx: ((@n - @i) + 1);
+    .col-@{t}-offset-@{i} {
+        // 百分比布局
+        margin-left: ((@i * 100%) / @n);
+    }
+    .generate-offset-columns(@n, @t, (@i + 1));
+}
+
+// 指定列漂移属性
+.generate-columns-float(@n, @t, @i: 1) when (@i <= @n){
+    .col-@{t}-@{i} {
+        // 百分比布局
+        float: left;
+    }
+    .generate-columns-float(@n, @t, (@i + 1));
 }
