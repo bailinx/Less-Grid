@@ -4,6 +4,8 @@
 * 实现24格灵活布局
 * 类Bootstrap语法
 
+![X-Grid](https://raw.githubusercontent.com/radishj/X-Grid/master/docs/img/4.gif)
+
 ## 使用方法
 引入css
 ``` html
@@ -32,4 +34,3 @@ col-lg-13 col-lg-offset-1(超大屏幕)
 > 常用布局参考(24列)
 
 ![常用布局参考(24列)](https://raw.githubusercontent.com/radishj/X-Grid/master/docs/img/3.png)
-
