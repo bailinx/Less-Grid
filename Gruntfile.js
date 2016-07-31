@@ -39,8 +39,8 @@ module.exports = function(grunt) {
                     strictMath: true,
                     sourceMap: true
                 },
-                src: ['less/x-grid.less'],
-                dest: 'dist/css/x-grid.css',
+                src: ['less/less-grid.less'],
+                dest: 'dist/css/less-grid.css',
             }
             /*compile: {
                 options: {
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
                 csslintrc: '.csslintrc'
             },
             dist: [
-                'dist/css/x-grid.css'
+                'dist/css/less-grid.css'
             ]
         },
         cssmin: {
